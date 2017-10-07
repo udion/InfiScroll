@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -51,27 +52,36 @@ public class InfiniteScrollAdapter<T> extends ArrayAdapter<T>{
             view.setTag(R.id.t1, view.findViewById(R.id.textView1));
             view.setTag(R.id.t2, view.findViewById(R.id.textView2));
             view.setTag(R.id.t3, view.findViewById(R.id.textView3));
+            view.setTag(R.id.t4, view.findViewById(R.id.textView4));
+            //buttons
             view.setTag(R.id.b1, view.findViewById(R.id.button_add_comment));
+            view.setTag(R.id.b2, view.findViewById(R.id.button_more_comment));
         }else{
             view = convertView;
         }
         TextView textView1 = (TextView) view.getTag(R.id.t1);
         TextView textView2 = (TextView) view.getTag(R.id.t2);
         TextView textView3 = (TextView) view.getTag(R.id.t3);
-        final Button btn = (Button) view.getTag(R.id.b1);
+        TextView textView4 = (TextView) view.getTag(R.id.t4);
+        final Button btn1 = (Button) view.getTag(R.id.b1);
+        final Button btn2 = (Button) view.getTag(R.id.b2);
 
         textView1.setText(((List<List<String>>)values).get(position).get(0).toString());
         textView2.setText(((List<List<String>>)values).get(position).get(1).toString());
         textView3.setText(((List<List<String>>)values).get(position).get(2).toString());
-        btn.setTag(((List<List<String>>)values).get(position).get(3).toString());
-        btn.setOnClickListener(new View.OnClickListener(){
+        textView4.setText(((List<List<String>>)values).get(position).get(3).toString());
+
+        btn1.setTag(((List<List<String>>)values).get(position).get(4).toString());
+        btn1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                String bid = (String) btn.getTag();
-//                    TextView tv = (TextView) v.findViewById(R.id.textView1);
+                //TODO write the proper action
+                String bid = (String) btn1.getTag();
                 System.out.println("hi inside addComments "+bid);
+                Toast.makeText(getContext(), "post id: "+bid, Toast.LENGTH_SHORT).show();
             }
         });
+        //TODO write the listener for btn2
         return view;
     }
 

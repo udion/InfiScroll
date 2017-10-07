@@ -24,9 +24,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:padding="7dp"
         android:textSize="20sp"
-        android:text="test"
-        android:padding="7dp"/>
+        android:text="name"
+        android:textColor="@color/colorPrimaryDark" />
 
     <TextView
         android:id="@+id/textView2"
@@ -35,25 +36,44 @@
         android:layout_toRightOf="@+id/textView1"
         android:padding="7dp"
         android:textSize="20sp"
-        android:text="name"
-        android:textColor="@color/colorPrimaryDark" />
-
+        android:text="this is post"/>
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/textView2"
         android:padding="7dp"
-        android:textSize="20sp"
-        android:layout_gravity="right"
-        android:text="this is post"/>
+        android:textSize="10sp"
+        android:text="timestamp"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:padding="7dp"
+        android:textSize="15sp"
+        android:text="this is comment"/>
+
     <Button xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/button_add_comment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView3"
+        android:layout_below="@+id/textView4"
         android:layout_alignParentRight="true"
         android:text="comment"
+        android:textSize="10sp"
+        android:onClick="addComments" />
+    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/button_more_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:text="... more"
+        android:textSize="10sp"
         android:onClick="addComments" />
     </RelativeLayout>
     </android.support.v7.widget.CardView>
