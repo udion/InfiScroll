@@ -47,6 +47,14 @@
         android:textSize="20sp"
         android:layout_gravity="right"
         android:text="this is post"/>
+    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/button_add_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentRight="true"
+        android:text="comment"
+        android:onClick="addComments" />
     </RelativeLayout>
     </android.support.v7.widget.CardView>
 </FrameLayout>

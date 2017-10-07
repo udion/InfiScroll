@@ -8,9 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class InfiniteScrollAdapter<T> extends ArrayAdapter<T>{
@@ -47,19 +47,31 @@ public class InfiniteScrollAdapter<T> extends ArrayAdapter<T>{
         View view;
         if(convertView == null){
             view = LayoutInflater.from(context).inflate(R.layout.row_layout, null);
+
             view.setTag(R.id.t1, view.findViewById(R.id.textView1));
             view.setTag(R.id.t2, view.findViewById(R.id.textView2));
             view.setTag(R.id.t3, view.findViewById(R.id.textView3));
+            view.setTag(R.id.b1, view.findViewById(R.id.button_add_comment));
         }else{
             view = convertView;
         }
         TextView textView1 = (TextView) view.getTag(R.id.t1);
         TextView textView2 = (TextView) view.getTag(R.id.t2);
         TextView textView3 = (TextView) view.getTag(R.id.t3);
+        final Button btn = (Button) view.getTag(R.id.b1);
+
         textView1.setText(((List<List<String>>)values).get(position).get(0).toString());
         textView2.setText(((List<List<String>>)values).get(position).get(1).toString());
         textView3.setText(((List<List<String>>)values).get(position).get(2).toString());
-
+        btn.setTag(((List<List<String>>)values).get(position).get(3).toString());
+        btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                String bid = (String) btn.getTag();
+//                    TextView tv = (TextView) v.findViewById(R.id.textView1);
+                System.out.println("hi inside addComments "+bid);
+            }
+        });
         return view;
     }
 

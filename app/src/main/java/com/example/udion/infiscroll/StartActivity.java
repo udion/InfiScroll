@@ -5,8 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AbsListView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -16,7 +18,7 @@ public class StartActivity extends AppCompatActivity implements AbsListView.OnSc
     private ProgressBar progressBar;
     private InfiniteScrollAdapter<List<String>> adapter;
     private Handler mHandler;
-    private List<String> t;
+    private Button Btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,4 +64,5 @@ public class StartActivity extends AppCompatActivity implements AbsListView.OnSc
             hasCallback = false;
         }
     };
+
 }
